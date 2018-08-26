@@ -43,17 +43,56 @@ Notice: Array to string conversion in C:\xampp\htdocs\HomeWork.loc\index07.php o
 //$num2 – числовые, $operator – символ, обозначающий
 //операцию. Функция должна возвращать результат выполнения
 //оператора $operator над $num1 и $num
-function op($num1,$num2,$operator){
-    if ($operator=='+'){
-        $total=$num1+$num2;
-    }elseif ($operator=='-') {
-        $total=$num1-$num2;
-    }elseif ($operator=='/'){
-        $total=$num1/$num2;       
-    } else {
-        $total=$num1*$num2;
-    }    
-    echo $total;
-    
+
+//function op($num1,$num2,$operator){
+//    if ($operator=='+'){
+//        $total=$num1+$num2;
+//    }elseif ($operator=='-') {
+//        $total=$num1-$num2;
+//    }elseif ($operator=='/'){
+//        $total=$num1/$num2;       
+//    } else {
+//        $total=$num1*$num2;
+//    }    
+//    echo $total;    
+//}
+//echo op(7,5,"+");
+
+//6.Написание системы комментариев на PHP.
+//1)Отправка комментария пользователем.
+//2)Отображение времени отправки комментария.
+//3)Отображение имени отправителя.
+//4)Возможность редактирования комментария.
+//5)Возможность удаления комментария.
+//6)Возможность отправить комментарий анонимно.
+//
+//Создать форму которая содержит все вышеперечисленные пункты.
+//(возможность – это чекбокс). Поскольку у нас ещё нет возможности
+//реализовать это через фреймворк, сделать функцию в отдельном файле и
+//переходить в файл с вызовом этой функции по нажатию кнопки отправки
+//формы. Функция должна выводить на экран всю введённую информацию
+//из формы.
+?>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <form method="POST" action="script07.php">
+            Name:<input type="text" name="$name"><br>
+            Massage:<input type="text" name="$mess"><br>
+            <input type="submit" value="Send">
+            <input type="submit" value="Send Anonim">
+        </form>
+<?php
+$messs=filter_input($_POST[$mess]);
+if(isset(filter_input($_POST['submit']))){
+    viewMess();
 }
-echo op(7,5,"+");
+
+
+
+?>
+    </body>
+</html>
